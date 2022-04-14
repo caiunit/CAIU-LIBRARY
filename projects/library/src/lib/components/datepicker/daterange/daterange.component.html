@@ -8,7 +8,7 @@
       [filter]=""
       [startAt]="startDateValue"
     ></iu-datepicker> -->
-      <iu-datepicker #startDate (selectedChanged)="changeStartDate($event)" [startAt]="now" [value]="startDateValue">
+      <iu-datepicker #startDate (selectedChanged)="changeStartDate($event)" [startAt]="now">
       </iu-datepicker>
    </div>
    <div class="end-date" [class.date]="!inline" [class.inline-date]="inline">
@@ -20,7 +20,7 @@
       [filter]="filter"
       [startAt]="endDateValue"
     ></iu-datepicker> -->
-      <iu-datepicker #endDate (selectedChanged)="changeEndDate($event)" [startAt]="now" [value]="endDateValue">
+      <iu-datepicker #endDate (selectedChanged)="changeEndDate($event)" [startAt]="now">
       </iu-datepicker>
    </div>
 </div>

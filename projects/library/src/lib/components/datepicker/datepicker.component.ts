@@ -1,12 +1,12 @@
 import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  forwardRef,
-  Input,
-  OnInit,
-  Output,
-  ViewChild
+   ChangeDetectionStrategy,
+   Component,
+   EventEmitter,
+   forwardRef,
+   Input,
+   OnInit,
+   Output,
+   ViewChild
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
@@ -16,101 +16,102 @@ import { DateHelper } from '../../shared/date';
 import { truthy } from '../../shared/utils';
 
 export const DATEPICKER_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => DatepickerComponent),
-  multi: true
+   provide: NG_VALUE_ACCESSOR,
+   useExisting: forwardRef(() => DatepickerComponent),
+   multi: true
 };
 
 @Component({
-  selector: 'iu-datepicker',
-  templateUrl: './datepicker.component.html',
-  styleUrls: ['./datepicker.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [DATEPICKER_ACCESSOR]
+   selector: 'iu-datepicker',
+   templateUrl: './datepicker.component.html',
+   styleUrls: ['./datepicker.component.scss'],
+   changeDetection: ChangeDetectionStrategy.OnPush,
+   providers: [DATEPICKER_ACCESSOR]
 })
 export class DatepickerComponent implements ControlValueAccessor, OnInit {
-  @Input() filter: (d: Date) => boolean;
-  @Input() min: Date;
-  @Input() max: Date;
-  @Input() placeholder = 'Choose a date';
-  @Input() startAt: Date;
-  @Input() startView: 'month' | 'year' = 'month';
-  @Input() touchUi;
-  @Output() selectedChanged = new EventEmitter<Date>();
-  @ViewChild('picker', { static: true }) datepicker: MatDatepicker<Date>;
-  private onModelChange: Function;
-  private onTouch: Function;
-  _value: Date;
-  dateFilter: (d: Date) => boolean;
-  focused: Date;
+   @Input() filter: (d: Date) => boolean;
+   @Input() min: Date;
+   @Input() max: Date;
+   @Input() placeholder = 'Choose a date';
+   @Input() startAt: Date;
+   @Input() startView: 'month' | 'year' = 'month';
+   @Input() touchUi;
+   @Output() selectedChanged = new EventEmitter<Date>();
+   @ViewChild('picker', { static: true }) datepicker: MatDatepicker<Date>;
+   private onModelChange: Function;
+   private onTouch: Function;
+   _value: Date;
+   dateFilter: (d: Date) => boolean;
+   focused: Date;
 
-  constructor() { }
+   constructor() { }
 
-  get value(): Date {
-    return this._value;
-  }
+   get value(): Date {
+      return this._value;
+   }
 
-  @Input()
-  set value(val: Date) {
-    this._value = val;
-  }
+   @Input()
+   set value(val: Date) {
+      this._value = val;
+   }
 
-  registerOnChange(fn: Function) {
-    this.onModelChange = fn;
-  }
+   registerOnChange(fn: Function) {
+      this.onModelChange = fn;
+   }
 
-  registerOnTouched(fn: Function) {
-    this.onTouch = fn;
-  }
+   registerOnTouched(fn: Function) {
+      this.onTouch = fn;
+   }
 
-  writeValue(value: Date) {
-    this.value = value;
-  }
+   writeValue(value: Date) {
+      this.value = value;
+   }
 
-  onChange(value: MatDatepickerInputEvent<Date>) {
-    this.value = value.value;
-    if (this.onModelChange) {
-      this.onModelChange(value.value);
-    }
-  }
-
-  onBlur(input: any) {
-    if (truthy(input.value)) {
-      if (DateHelper.IsValidDate(input.value)) {
-        this.changeSelected(input.value);
-      } else {
-        input.value = DateHelper.FormatDate(this.value);
+   onChange(value: MatDatepickerInputEvent<Date>) {
+      this.value = value.value;
+      if (this.onModelChange) {
+         this.onModelChange(value.value);
       }
-    }
-  }
+   }
 
-  get id() {
-    return this.datepicker.id;
-  }
+   // onBlur(input: any) {
+   //    console.log(input)
+   //    if (truthy(input)) {
+   //       if (DateHelper.IsValidDate(input)) {
+   //          this.changeSelected(input);
+   //       } else {
+   //          input = DateHelper.FormatDate(this.value);
+   //       }
+   //    }
+   // }
 
-  get opened() {
-    return this.datepicker.opened;
-  }
+   get id() {
+      return this.datepicker.id;
+   }
 
-  ngOnInit() {
-    this.startAt = this.value;
-    if (this.filter != null) {
-      this.dateFilter = this.filter;
-    } else {
-      this.dateFilter = null;
-    }
-  }
+   get opened() {
+      return this.datepicker.opened;
+   }
 
-  changeSelected(date: MatDatepickerInputEvent<Date>) {
-    this.onChange(date);
-    this.selectedChanged.emit(date.value);
-  }
+   ngOnInit() {
+      this.startAt = this.value;
+      if (this.filter != null) {
+         this.dateFilter = this.filter;
+      } else {
+         this.dateFilter = null;
+      }
+   }
 
-  close() {
-    this.datepicker.close();
-  }
+   changeSelected(date: MatDatepickerInputEvent<Date>) {
+      this.onChange(date);
+      this.selectedChanged.emit(date.value);
+   }
 
-  open() {
-    this.datepicker.open();
-  }
+   close() {
+      this.datepicker.close();
+   }
+
+   open() {
+      this.datepicker.open();
+   }
 }

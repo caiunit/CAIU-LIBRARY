@@ -4,13 +4,10 @@
     [placeholder]="placeholder"
     [matDatepicker]="picker"
     [matDatepickerFilter]="dateFilter"
-    (blur)="onBlur(pickerInput)"
-    (dateChange)="onChange($event)"
     (dateChange)="changeSelected($event)"
     [min]="min"
     [max]="max"
     [value]="value"
-    #pickerInput
   />
   <!-- <input
     matInput

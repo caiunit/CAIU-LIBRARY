@@ -8,12 +8,10 @@ import {
    Output,
    ViewChild
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NgModel, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-
-import { DateHelper } from '../../shared/date';
-import { truthy } from '../../shared/utils';
+import { dateFormatValidator } from '../../shared/date';
 
 export const DATEPICKER_ACCESSOR: any = {
    provide: NG_VALUE_ACCESSOR,
@@ -28,6 +26,7 @@ export const DATEPICKER_ACCESSOR: any = {
    changeDetection: ChangeDetectionStrategy.OnPush,
    providers: [DATEPICKER_ACCESSOR]
 })
+
 export class DatepickerComponent implements ControlValueAccessor, OnInit {
    @Input() filter: (d: Date) => boolean;
    @Input() min: Date;
@@ -43,6 +42,7 @@ export class DatepickerComponent implements ControlValueAccessor, OnInit {
    _value: Date;
    dateFilter: (d: Date) => boolean;
    focused: Date;
+   dateInput = new FormControl('');
 
    constructor() { }
 
@@ -75,7 +75,6 @@ export class DatepickerComponent implements ControlValueAccessor, OnInit {
    }
 
    // onBlur(input: any) {
-   //    console.log(input)
    //    if (truthy(input)) {
    //       if (DateHelper.IsValidDate(input)) {
    //          this.changeSelected(input);
@@ -100,6 +99,10 @@ export class DatepickerComponent implements ControlValueAccessor, OnInit {
       } else {
          this.dateFilter = null;
       }
+
+      this.dateInput.setValidators([
+         dateFormatValidator()
+      ]);
    }
 
    changeSelected(date: MatDatepickerInputEvent<Date>) {
@@ -114,4 +117,5 @@ export class DatepickerComponent implements ControlValueAccessor, OnInit {
    open() {
       this.datepicker.open();
    }
+
 }

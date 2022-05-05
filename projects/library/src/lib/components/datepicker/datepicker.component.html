@@ -8,18 +8,11 @@
     [min]="min"
     [max]="max"
     [value]="value"
+    [formControl]="dateInput"
   />
-  <!-- <input
-    matInput
-    [placeholder]="placeholder"
-    [matDatepicker]="picker"
-    (blur)="onBlur(pickerInput)"
-    (change)="onChange(value)"
-    [min]="min"
-    [max]="max"
-    [value]="value"
-    #pickerInput
-  /> -->
+  <mat-error>
+   Please enter a valid date using <strong>mm/dd/yyyy</strong> format.
+  </mat-error>
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker
     #picker
@@ -27,11 +20,4 @@
     [startView]="startView"
     [touchUi]="touchUi"
   ></mat-datepicker>
-  <!-- <mat-datepicker
-    #picker
-    [startAt]="startAt"
-    [startView]="startView"
-    [touchUi]="touchUi"
-    (selectedChanged)="changeSelected($event)"
-  ></mat-datepicker> -->
 </mat-form-field>

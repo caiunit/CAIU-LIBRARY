@@ -26,7 +26,7 @@ import { FileControlComponent } from 'projects/library/src/lib/components/file-u
 
 
 export const reducers: ActionReducerMap<any> = {
-  config: configReducer
+   config: configReducer
 };
 
 @NgModule({
@@ -38,22 +38,22 @@ export const reducers: ActionReducerMap<any> = {
       // FileUploadDemoComponent,
       // FileControlComponent
    ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    EditorModule,
-    FormsModule,
-    HttpModule.forRoot(apiBaseUrlSelector, authTokenSelector),
-    LibraryModule,
-    GridModule,
-    MatTreeModule,
-    RouterModule.forRoot(),
-    StorageModule.forRoot('CAIU_STORE'),
-    StoreModule.forRoot(reducers)
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
-  bootstrap: [AppComponent]
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      EditorModule,
+      FormsModule,
+      HttpModule.forRoot(apiBaseUrlSelector, authTokenSelector),
+      LibraryModule,
+      GridModule,
+      MatTreeModule,
+      RouterModule.forRoot(),
+      StorageModule.forRoot('CAIU_STORE'),
+      StoreModule.forRoot(reducers)
+   ],
+   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+   providers: [],
+   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

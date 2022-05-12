@@ -74,16 +74,6 @@ export class DatepickerComponent implements ControlValueAccessor, OnInit {
       }
    }
 
-   // onBlur(input: any) {
-   //    if (truthy(input)) {
-   //       if (DateHelper.IsValidDate(input)) {
-   //          this.changeSelected(input);
-   //       } else {
-   //          input = DateHelper.FormatDate(this.value);
-   //       }
-   //    }
-   // }
-
    get id() {
       return this.datepicker.id;
    }
@@ -103,6 +93,7 @@ export class DatepickerComponent implements ControlValueAccessor, OnInit {
       this.dateInput.setValidators([
          dateFormatValidator()
       ]);
+      this.dateInput.setValue(this.value);
    }
 
    changeSelected(date: MatDatepickerInputEvent<Date>) {

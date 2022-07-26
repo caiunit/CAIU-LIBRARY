@@ -11,7 +11,7 @@ import {
 import { ControlValueAccessor, FormControl, NgModel, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-import { dateFormatValidator } from '../../shared/date';
+import { dateFormatValidator, noWeekendDaysValidator } from '../../shared/date';
 
 export const DATEPICKER_ACCESSOR: any = {
    provide: NG_VALUE_ACCESSOR,
@@ -91,7 +91,8 @@ export class DatepickerComponent implements ControlValueAccessor, OnInit {
       }
 
       this.dateInput.setValidators([
-         dateFormatValidator()
+         dateFormatValidator(),
+         noWeekendDaysValidator()
       ]);
       this.dateInput.setValue(this.value);
    }

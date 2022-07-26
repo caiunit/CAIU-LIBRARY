@@ -599,6 +599,20 @@ export class DateHelper {
    }
 }
 
+export function noWeekendDaysValidator(): ValidatorFn {
+   return (control: AbstractControl): { [key: string]: any } => {
+      if (control.value && Date.parse(control.value.toString())) {
+         const dateValue = new Date(control.value.toString())
+         const IsWeekend = DateHelper.IsWeekend(dateValue);
+         const formattedDate = DateHelper.FormatDate(dateValue);
+         const weekendDay = DateHelper.Weekdays[new Date(dateValue).getDay()].name;
+         return !IsWeekend ? null : { weekend: `${formattedDate} is a ${weekendDay}. Weekend Days are not allowed!` };
+      } else {
+         return null;
+      }
+   };
+}
+
 export function dateFormatValidator(): ValidatorFn {
    return (control: AbstractControl): { [key: string]: any } => {
       const dt = new Date(control.value);

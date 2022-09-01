@@ -1,6 +1,11 @@
 <mat-form-field>
-   <input matInput [placeholder]="placeholder" [matDatepicker]="picker" [matDatepickerFilter]="dateFilter"
-      (dateChange)="changeSelected($event)" [min]="min" [max]="max" [value]="value" [formControl]="dateInput" />
+   <input matInput dateMask [required]="required" [placeholder]="placeholder" 
+   [matDatepicker]="picker" [matDatepickerFilter]="dateFilter" 
+   (dateChange)="changeSelected($event)" [min]="min" [max]="max" [value]="value" 
+   [formControl]="dateInput" />
+   <mat-error *ngIf="dateInput.hasError('required')">
+      This date is required.
+   </mat-error>
    <mat-error *ngIf="dateInput.hasError('format')">
       Please enter a valid date using <strong>mm/dd/yyyy</strong> format.
    </mat-error>

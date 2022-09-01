@@ -32,6 +32,7 @@ export class DatepickerComponent implements ControlValueAccessor, OnInit {
    @Input() min: Date;
    @Input() max: Date;
    @Input() placeholder = 'Choose a date';
+   @Input() required: boolean = false;
    @Input() startAt: Date;
    @Input() startView: 'month' | 'year' = 'month';
    @Input() touchUi;

@@ -32,7 +32,8 @@ export class DaterangeComponent implements ControlValueAccessor, OnInit {
    @Input() debug = false;
    @Input() inline = false;
    @Input() min: Date;
-   @Input() max: Date;
+   @Input() max: Date; 
+   @Input() required: boolean = false;
    @Input() startAt: Date;
    @Input() startLabel = 'Start Date';
    @Input() endLabel = 'End Date';

@@ -1,7 +1,8 @@
 import { Directive, ElementRef, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 import { NgControl, AbstractControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { DumbComponent } from '@caiu/library';
+import { DumbComponent } from './component';
+
 
 @Directive({
   selector: '[dateMask]'

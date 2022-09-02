@@ -7,8 +7,7 @@
    </div>
    <div class="end-date" [class.date]="!inline" [class.inline-date]="inline">
       <label class="lbl-date iu-primary">{{ endLabel }}:</label>
-      <iu-datepicker #endDate (selectedChanged)="changeEndDate($event)" [startAt]="now"
-      [required]="required">
+      <iu-datepicker #endDate (selectedChanged)="changeEndDate($event)" [startAt]="now">
       </iu-datepicker>
    </div>
 </div>

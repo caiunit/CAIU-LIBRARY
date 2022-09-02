@@ -34,7 +34,7 @@
     "@angular/platform-browser": "^12.2.16",
     "@angular/platform-browser-dynamic": "^12.2.16",
     "@angular/router": "^12.2.16",
-    "@caiu/library": "^11.4.13",
+    "@caiu/library": "^11.4.18",
     "@microsoft/signalr": "^3.1.14",
     "@ngrx/effects": "^11.1.0",
     "@ngrx/store": "^11.1.0",

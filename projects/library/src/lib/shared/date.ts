@@ -606,7 +606,7 @@ export function noWeekendDaysValidator(): ValidatorFn {
          const IsWeekend = DateHelper.IsWeekend(dateValue);
          const formattedDate = DateHelper.FormatDate(dateValue);
          const weekendDay = DateHelper.Weekdays[new Date(dateValue).getDay()].name;
-         return !IsWeekend ? null : { weekend: `${formattedDate} is a ${weekendDay}. Weekend Days are not allowed!` };
+         return !IsWeekend ? null : { weekend: `${formattedDate} is a ${weekendDay}. Weekend Days are not allowed.` };
       } else {
          return null;
       }

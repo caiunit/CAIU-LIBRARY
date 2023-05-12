@@ -1,7 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActionReducerMap } from '@ngrx/store';
 import {
    LibraryModule,
@@ -13,17 +12,17 @@ import {
    StoreModule,
    configReducer,
    FormsModule,
-   EditorModule
+   EditorModule,
+   CalendarModule
 } from 'library';
-import { GridModule } from 'grid';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AccordionDemoComponent } from './accordion-demo/accordion-demo.component';
-import { CalendarDemoComponent } from './calendar-demo/calendar-demo.component';
-import { EditorDemoComponent } from './editor-demo/editor-demo.component';
-import { FileUploadDemoComponent } from './file-upload-demo/file-upload-demo.component';
+// import { AccordionDemoComponent } from './accordion-demo/accordion-demo.component';
+// import { CalendarDemoComponent } from './calendar-demo/calendar-demo.component';
+// import { EditorDemoComponent } from './editor-demo/editor-demo.component';
+// import { FileUploadDemoComponent } from './file-upload-demo/file-upload-demo.component';
 import { FileControlComponent } from 'projects/library/src/lib/components/file-upload/file-control/file-control.component';
-
+import { BrowserModule } from '@angular/platform-browser';
 
 export const reducers: ActionReducerMap<any> = {
    config: configReducer
@@ -41,13 +40,14 @@ export const reducers: ActionReducerMap<any> = {
    imports: [
       BrowserModule,
       AppRoutingModule,
-      BrowserAnimationsModule,
+      // BrowserAnimationsModule,
+      CalendarModule,
       EditorModule,
       FormsModule,
       HttpModule.forRoot(apiBaseUrlSelector, authTokenSelector),
       LibraryModule,
-      GridModule,
       MatTreeModule,
+      MatToolbarModule,
       RouterModule.forRoot(),
       StorageModule.forRoot('CAIU_STORE'),
       StoreModule.forRoot(reducers)

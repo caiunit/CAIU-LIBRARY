@@ -24,7 +24,9 @@
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.name">
       <mat-header-cell *matHeaderCellDef>{{ column.label }}</mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <span *ngIf="!column.type">{{ element[column.name] }}</span>
+        <span *ngIf="!column.type && column.name !== 'lastModifiedDate'">
+          {{ element[column.name] }}
+        </span>
         <span *ngIf="column.type === 'DATE' || column.name === 'lastModifiedDate'">
           {{ getDate(element[column.name]) | date: 'shortDate' }}
         </span>
@@ -36,7 +38,9 @@
       </mat-cell>
       <!--Active Row-->
       <mat-footer-cell *matFooterCellDef>
-        <span *ngIf="!column.type">{{ activeRow[column.name] }}</span>
+        <span *ngIf="!column.type && column.name !== 'lastModifiedDate'">
+          {{ activeRow[column.name] }}
+        </span>
         <span *ngIf="column.type === 'DATE' || column.name === 'lastModifiedDate'">
           {{ getDate(activeRow[column.name]) | date: 'shortDate' }}
         </span>

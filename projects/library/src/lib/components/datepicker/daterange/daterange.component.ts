@@ -62,10 +62,10 @@ export class DaterangeComponent implements ControlValueAccessor, OnInit {
    set value(val: DateRange) {
       this._value = val;
       if (this.startDatepicker) {
-         this.startDatepicker.value = val.startDate;
+         this.startDatepicker.value = val?.startDate;
       }
       if (this.endDatepicker) {
-         this.endDatepicker.value = val.endDate;
+         this.endDatepicker.value = val?.endDate;
       }
       if (
          this &&

@@ -93,7 +93,7 @@ export class DatepickerComponent implements ControlValueAccessor, OnInit {
 
       this.dateInput.setValidators([
          dateFormatValidator(),
-         noWeekendDaysValidator()
+         // noWeekendDaysValidator()
       ]);
       this.dateInput.setValue(this.value);
    }

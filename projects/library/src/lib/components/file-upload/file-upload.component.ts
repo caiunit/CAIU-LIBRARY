@@ -288,7 +288,15 @@ export class FileUploadComponent implements OnInit, OnDestroy, ControlValueAcces
       const readyState = FileUpload.GetReadyState(reader);
       changes$.next(Object.assign(upload, { src, readyState }));
     };
-    reader.readAsDataURL(file);
+
+    if (file['type'].includes('image')) {
+      // base64 encoded for image preview
+      reader.readAsDataURL(file);
+    } else {
+      // UTF-8 for all other file types
+      reader.readAsText(file);
+    }
+
     this.onUpload(
       build(FileUpload, upload, {
         readyState: FileUpload.GetReadyState(reader)

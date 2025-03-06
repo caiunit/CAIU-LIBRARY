@@ -1,6 +1,6 @@
 {
   "name": "@caiu/library",
-  "version": "11.3.5",
+  "version": "11.3.7",
   "license": "MIT",
   "private": false,
   "peerDependencies": {

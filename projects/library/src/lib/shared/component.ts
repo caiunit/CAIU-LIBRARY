@@ -71,17 +71,17 @@ export class DumbComponent implements OnDestroy {
     audio.play();
   }
 
-  print(html: string) {
-    const iframe = document.createElement('iframe')
+  print( html: string ) {
+    const iframe = document.createElement( 'iframe' )
 
-    iframe.onload = function () {
+    iframe.onload = () => {
       const iframeDocument = iframe.contentDocument
         ? iframe.contentDocument
         : iframe.contentWindow.document
 
-      iframeDocument.querySelector('body').innerHTML = html
+      iframeDocument.querySelector( 'body' ).innerHTML = html
 
-      const doPrint = (iframe) => {
+      const doPrint = ( iframe: HTMLIFrameElement ) => {
         //* This is key, the iframe must have focus first
         iframe.contentWindow.focus()
         iframe.contentWindow.print()
@@ -89,26 +89,26 @@ export class DumbComponent implements OnDestroy {
 
       //* AM [17865] - Added logic to dynamically wait for any images
       //*  to load before firing the print command.
-      const images = iframeDocument.querySelectorAll('image')
+      const images = iframeDocument.querySelectorAll( 'image, img' ) as NodeListOf<HTMLImageElement>
 
-      if (images && images.length) {
+      if ( images && images.length ) {
         const promises = []
 
-        for (let i = 0; i < images.length; i += 1) {
-          promises.push(new Promise<void>((resolve, reject) => {
-            images[i].onload = () => resolve()
-          }))
+        for ( let i = 0; i < images.length; i += 1 ) {
+          promises.push( new Promise<void>( ( resolve, reject ) => {
+            images[ i ].onload = () => resolve()
+          } ) )
         }
 
-        Promise.allSettled(promises).then(() => {
-          doPrint(iframe)
-        })
+        Promise.allSettled( promises ).then( () => {
+          doPrint( iframe )
+        } )
       } else {
-        doPrint(iframe)
+        doPrint( iframe )
       }
     }
 
-    document.querySelector('body').appendChild(iframe)
+    document.querySelector( 'body' ).appendChild( iframe )
   }
 
   removeSubscriptions() {

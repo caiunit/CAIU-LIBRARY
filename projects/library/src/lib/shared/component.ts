@@ -74,14 +74,14 @@ export class DumbComponent implements OnDestroy {
   print( html: string ) {
     const iframe = document.createElement( 'iframe' )
 
-    iframe.onload = function () {
+    iframe.onload = () => {
       const iframeDocument = iframe.contentDocument
         ? iframe.contentDocument
         : iframe.contentWindow.document
 
       iframeDocument.querySelector( 'body' ).innerHTML = html
 
-      const doPrint = ( iframe ) => {
+      const doPrint = ( iframe: HTMLIFrameElement ) => {
         //* This is key, the iframe must have focus first
         iframe.contentWindow.focus()
         iframe.contentWindow.print()
@@ -89,7 +89,7 @@ export class DumbComponent implements OnDestroy {
 
       //* AM [17865] - Added logic to dynamically wait for any images
       //*  to load before firing the print command.
-      const images = iframeDocument.querySelectorAll( 'image' )
+      const images = iframeDocument.querySelectorAll( 'image, img' ) as NodeListOf<HTMLImageElement>
 
       if ( images && images.length ) {
         const promises = []

@@ -289,13 +289,7 @@ export class FileUploadComponent implements OnInit, OnDestroy, ControlValueAcces
       changes$.next(Object.assign(upload, { src, readyState }));
     };
 
-    if (file['type'].includes('image')) {
-      // base64 encoded for image preview
-      reader.readAsDataURL(file);
-    } else {
-      // UTF-8 for all other file types
-      reader.readAsText(file);
-    }
+    reader.readAsDataURL(file);
 
     this.onUpload(
       build(FileUpload, upload, {

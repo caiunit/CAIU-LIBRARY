@@ -32,13 +32,13 @@
     font-weight: 400;
 }
 
-.mat-dialog-content {
+.mat-mdc-dialog-content {
     width: 560px;
     margin: 64px 20px 64px 56px;
     color: #999999;
 }
 
-.mat-dialog-actions {
+.mat-mdc-dialog-actions {
     margin-left: -24px;
     margin-right: -24px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -66,12 +66,12 @@
         background: 0 0;
     }
 
-    button.mat-button.cdk-focused {
+    button.mat-mdc-button.cdk-focused {
         background: inherit;
     }
 }
 
-.mat-raised-button {
+.mat-mdc-raised-button {
     margin-left: 0 !important;
 }
 

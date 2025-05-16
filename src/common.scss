@@ -134,6 +134,7 @@ $container-color: $sky-blue;
   $accent: map-get($theme, accent);
 
   iu-calendar {
+    /* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version. */
     .mat-tab-body-wrapper {
       -webkit-box-shadow: 0 8px 6px -6px black;
       -moz-box-shadow: 0 8px 6px -6px black;
@@ -366,9 +367,9 @@ $container-color: $sky-blue;
 }
 
 @mixin dialog-color($primary, $accent) {
-  .mat-dialog-container {}
+  .mat-mdc-dialog-container {}
 
-  .mat-dialog-content {}
+  .mat-mdc-dialog-content {}
 
   .mat-toolbar {
 
@@ -379,7 +380,7 @@ $container-color: $sky-blue;
 @mixin dialog-palette($primary, $accent) {
   @include dialog-color(mat-color($primary, 500), mat-color($accent, 500));
 
-  .mat-dialog-actions {
+  .mat-mdc-dialog-actions {
     button {
       background: mat-color($accent, 300);
       color: #fff !important;
@@ -396,11 +397,11 @@ $container-color: $sky-blue;
   $accent: map-get($theme, accent);
 
   iu-dialog {
-    .mat-dialog-actions {
+    .mat-mdc-dialog-actions {
       background: mat-color($primary);
     }
 
-    .mat-dialog-actions button:hover {
+    .mat-mdc-dialog-actions button:hover {
       background-color: mat-color($primary, 900);
     }
   }

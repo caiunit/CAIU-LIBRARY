@@ -2,7 +2,7 @@ iu-dialog#unsaved-changes {
     width: 600px;
     height: 600px;
 
-    .mat-dialog-actions button {
+    .mat-mdc-dialog-actions button {
         color: #fff !important;
     }
 
@@ -29,14 +29,14 @@ iu-dialog#unsaved-changes {
         text-transform: uppercase;
         font-weight: 400;
     }
-
+    /* TODO(mdc-migration): The following rule targets internal classes of dialog that may no longer apply for the MDC version. */
     mat-dialog-content {
         width: 80%;
         margin: 48px 10%;
         color: #999999;
     }
 
-    .mat-dialog-actions {
+    .mat-mdc-dialog-actions {
         margin-left: -24px;
         margin-right: -24px;
         font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -62,7 +62,7 @@ iu-dialog#unsaved-changes {
         }
     }
 
-    .mat-raised-button {
+    .mat-mdc-raised-button {
         margin-left: 0 !important;
     }
 

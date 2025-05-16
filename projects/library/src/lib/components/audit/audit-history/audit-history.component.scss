@@ -10,14 +10,14 @@
         border-radius: 10px;
         overflow-y: auto;
 
-        .mat-header-row {
+        .mat-mdc-header-row {
             border: none;
             background-color: #e1e2e1;
         }
 
-        .mat-cell,
-        .mat-footer-cell,
-        .mat-header-cell {
+        .mat-mdc-cell,
+        .mat-mdc-footer-cell,
+        .mat-mdc-header-cell {
             justify-content: center;
             text-align: center;
         }

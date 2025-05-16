@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, TemplateRef, Output, EventEmitter, Inject } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 import { CalendarEvent, CalendarEventType } from '../calendar.model';
 import { CalendarComponent } from '../calendar.component';

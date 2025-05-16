@@ -1,5 +1,5 @@
 import { ViewContainerRef } from '@angular/core';
-import { MatLegacyDialogConfig as MatDialogConfig, LegacyDialogPosition as DialogPosition, LegacyDialogRole as DialogRole } from '@angular/material/legacy-dialog';
+import { MatDialogConfig, DialogPosition, DialogRole } from '@angular/material/dialog';
 
 export class DialogModel {
     title = ' ';

@@ -7,7 +7,7 @@ import {
   ElementRef,
   AfterViewInit
 } from '@angular/core';
-import { MatLegacyDialogClose as MatDialogClose, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MatDialogClose, MatDialogRef } from '@angular/material/dialog';
 
 import { DialogAction, DialogModel } from './dialog.model';
 import { ChangeDetectionStrategy } from '@angular/compiler/src/core';

@@ -1,4 +1,4 @@
-<mat-card class="file-preview" [style.cursor]="cursorStyle">
+<mat-card appearance="outlined" class="file-preview" [style.cursor]="cursorStyle">
   <div class="graphic">
     <img *ngIf="showImage" [src]="file.src" [style.height]="height" [style.width]="width">
     <mat-icon *ngIf="!showImage" class="icon-graphic">{{ graphic }}</mat-icon>

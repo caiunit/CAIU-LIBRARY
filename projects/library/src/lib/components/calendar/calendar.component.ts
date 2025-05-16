@@ -11,7 +11,7 @@ import {
   ChangeDetectionStrategy 
 } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { Calendar, CalendarDay, CalendarEventType, CalendarEvent } from './calendar.model';
 import { CalendarDaysComponent } from './calendar-days/calendar-days.component';
 import { CalendarViewComponent } from './calendar-view/calendar-view.component';

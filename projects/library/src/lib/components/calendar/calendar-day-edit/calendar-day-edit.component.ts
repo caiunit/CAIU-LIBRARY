@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Optional, Input, TemplateRef, ViewChild, ElementRef, Output, EventEmitter, AfterViewInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
 
 import { CalendarDay, CalendarEventType, CalendarEvent } from '../calendar.model';
 import { LookupValue } from '../../../lookup/lookup.models';

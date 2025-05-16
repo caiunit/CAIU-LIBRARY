@@ -46,7 +46,7 @@ export class StorageEffects {
         withLatestFrom(this.state$, (action: Action, state: any) => {
             this.service.storeLocal(state, action);
         })
-    ));
+    ), { dispatch: false });
 
     /**
      * Stores state to local storage after each action.
@@ -57,7 +57,7 @@ export class StorageEffects {
         withLatestFrom(this.state$, (action: Action, state: any) => {
             this.service.storeSession(state, action);
         })
-    ));
+    ), { dispatch: false });
 
     constructor(
         private actions$: Actions,

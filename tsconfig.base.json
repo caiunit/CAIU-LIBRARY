@@ -10,6 +10,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
+    "compilationMode": "partial",
     "target": "es2022",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2022", "dom"],

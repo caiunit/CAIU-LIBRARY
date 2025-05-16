@@ -1,17 +1,17 @@
 {
    "name": "@caiu/library",
-   "version": "13.1.6",
+   "version": "16.0.0",
    "license": "MIT",
    "private": false,
    "peerDependencies": {
-      "@angular/cdk": "^13.3.9",
-      "@angular/common": "^13.3.12",
-      "@angular/core": "^13.3.12",
-      "@angular/material": "^13.3.9",
-      "@ngrx/effects": "^13.2.0",
-      "@ngrx/store": "^13.2.0"
+      "@angular/cdk": "^16.2.14",
+      "@angular/common": "^16.2.12",
+      "@angular/core": "^16.2.12",
+      "@angular/material": "^16.2.14",
+      "@ngrx/effects": "^16.3.0",
+      "@ngrx/store": "^16.3.0"
    },
    "dependencies": {
-      "tslib": "^2.4.0"
+      "tslib": "^2.8.1"
    }
 }

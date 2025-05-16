@@ -10,7 +10,6 @@ import {
 import { MatDialogClose, MatDialogRef } from '@angular/material/dialog';
 
 import { DialogAction, DialogModel } from './dialog.model';
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'iu-dialog',

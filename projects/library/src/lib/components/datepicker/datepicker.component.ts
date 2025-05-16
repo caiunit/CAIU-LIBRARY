@@ -95,7 +95,7 @@ export class DatepickerComponent implements ControlValueAccessor, OnInit {
          dateFormatValidator(),
          // noWeekendDaysValidator()
       ]);
-      this.dateInput.setValue(this.value);
+      this.dateInput.setValue(this.value.toLocaleDateString());
    }
 
    changeSelected(date: MatDatepickerInputEvent<Date>) {

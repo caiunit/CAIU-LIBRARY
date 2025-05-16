@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Effect, Actions, ofType } from '@ngrx/effects';
+import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { map, switchMap, catchError } from 'rxjs/operators';
 
@@ -17,10 +17,10 @@ export class RouterEffects {
    * All imperative navigation should be performed using this effects
    * so that the state is aware of the navigation.
    */
-  @Effect() navigate: Observable<Action> = this.actions$.pipe(
+  navigate: Observable<Action> = createEffect(() => this.actions$.pipe(
     ofType(RouterActions.NAVIGATE),
     switchMap((action: Action) => this.navigate$(action.payload))
-  );
+  ));
 
   constructor(
     private actions$: Actions,

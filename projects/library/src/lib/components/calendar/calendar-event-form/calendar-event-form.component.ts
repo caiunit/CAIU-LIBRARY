@@ -1,5 +1,5 @@
 import { Component, OnInit, Optional, Inject, Input, TemplateRef } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, UntypedFormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { CalendarEvent, CalendarEventType } from '../calendar.model';
@@ -14,7 +14,7 @@ import { build } from '../../../shared/utils';
   styleUrls: ['./calendar-event-form.component.scss']
 })
 export class CalendarEventFormComponent extends FormComponent implements OnInit {
-  @Control(CalendarEvent) form: FormGroup;
+  @Control(CalendarEvent) form: UntypedFormGroup;
   _allDayDefault = false;
   _calendarEvent: CalendarEvent = new CalendarEvent();
   _calendarEventFormTemplate: TemplateRef<any>;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -17,10 +17,10 @@ export class EventEffects {
   /**
    * Trigger event if action is a registered trigger.
    */
-  @Effect() onTriggerEvent: Observable<Action> = this.actions$.pipe(
+  onTriggerEvent: Observable<Action> = createEffect(() => this.actions$.pipe(
     filter(action => this.events.actions.indexOf(action.type) !== -1),
     map(this.trigger)
-  );
+  ));
 
   constructor(private actions$: Actions, private store: Store<any>) {
     this.store
@@ -42,22 +42,22 @@ export class MessagesEffects {
   /**
    * Broadcast message if action has a registered subscription.
    */
-  @Effect() onTriggerEvent: Observable<Action> = this.actions$.pipe(
+  onTriggerEvent: Observable<Action> = createEffect(() => this.actions$.pipe(
     filter(
       action =>
         this.messageSubscriptions.findIndex(x => x.action === action.type) !==
         -1
     ),
     map(x => this.broadcast(x, this.messageSubscriptions))
-  );
+  ));
 
   /**
    * Clear messages after they have been emitted.
    */
-  @Effect() onMessageAdded: Observable<Action> = this.actions$.pipe(
+  onMessageAdded: Observable<Action> = createEffect(() => this.actions$.pipe(
     ofType(MessagesActions.ADD),
     map((action: Action) => this.clearMessages(action))
-  );
+  ));
 
   constructor(private actions$: Actions, private store: Store<any>) {
     messageSubscriptionsSelector(store).subscribe(x => {

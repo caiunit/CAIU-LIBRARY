@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 
@@ -17,35 +17,35 @@ import { build } from '../shared/utils';
 
 @Injectable()
 export class HttpEffects<T> {
-  @Effect() onDelete$ = this.actions$.pipe(
+  onDelete$ = createEffect(() => this.actions$.pipe(
     ofType(HttpActions.DELETE),
     mergeMap((action: Action) => this.delete$(action.payload))
-  );
+  ));
 
-  @Effect() onGet$ = this.actions$.pipe(
+  onGet$ = createEffect(() => this.actions$.pipe(
     ofType(HttpActions.GET),
     mergeMap((action: Action) => this.get$(action.payload))
-  );
+  ));
 
-  @Effect() onPost$ = this.actions$.pipe(
+  onPost$ = createEffect(() => this.actions$.pipe(
     ofType(HttpActions.POST),
     mergeMap((action: Action) => this.post$(action.payload))
-  );
+  ));
 
-  @Effect() onPostFormUrlEncoded$ = this.actions$.pipe(
+  onPostFormUrlEncoded$ = createEffect(() => this.actions$.pipe(
     ofType(HttpActions.POST_FORM_URL_ENCODED),
     mergeMap((action: Action) => this.postFormUrlEncoded$(action.payload))
-  );
+  ));
 
-  @Effect() onPut$ = this.actions$.pipe(
+  onPut$ = createEffect(() => this.actions$.pipe(
     ofType(HttpActions.PUT),
     mergeMap((action: Action) => this.put$(action.payload))
-  );
+  ));
 
-  @Effect() onSearch$ = this.actions$.pipe(
+  onSearch$ = createEffect(() => this.actions$.pipe(
     ofType(HttpActions.SEARCH),
     mergeMap((action: Action) => this.search$(action.payload))
-  );
+  ));
 
   constructor(private actions$: Actions, private commands: HttpCommands<T>) { }
 

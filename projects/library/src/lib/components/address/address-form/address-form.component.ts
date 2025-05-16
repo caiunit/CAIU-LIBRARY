@@ -12,7 +12,8 @@ import {
   FormGroup,
   AbstractControl,
   NG_VALUE_ACCESSOR,
-  ControlValueAccessor
+  ControlValueAccessor,
+  UntypedFormGroup
 } from '@angular/forms';
 
 import { Control } from '../../../forms/decorators';
@@ -34,7 +35,7 @@ export const ADDRESS_FORM_ACCESSOR: any = {
 })
 export class AddressFormComponent extends DumbComponent
   implements OnInit, OnChanges, ControlValueAccessor {
-  @Control(Address) form: FormGroup;
+  @Control(Address) form: UntypedFormGroup;
   @Input() address: Address = new Address();
   @Input() canDelete = false;
   @Input() debug = false;

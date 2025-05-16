@@ -1,5 +1,5 @@
 import { OnDestroy, Directive } from '@angular/core';
-import { FormGroup, AbstractControl } from '@angular/forms';
+import { FormGroup, AbstractControl, UntypedFormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { Subscription, Observable } from 'rxjs';
@@ -18,7 +18,7 @@ import { HubService } from '../hub/hub.service';
 export class DumbComponent implements OnDestroy {
   dialog: MatDialog;
   dialogSubscription: Subscription;
-  form: FormGroup;
+  form: UntypedFormGroup;
   requestState: 'DEFAULT' | 'SUCCESS' | 'ERROR' = 'DEFAULT';
   subscriptions: Subscription[] = [];
 
@@ -185,7 +185,7 @@ export class DumbComponent implements OnDestroy {
 
 @Directive()
 export class FormComponent extends DumbComponent {
-  form: FormGroup;
+  form: UntypedFormGroup;
   model: HasId;
 
   get editing(): boolean {

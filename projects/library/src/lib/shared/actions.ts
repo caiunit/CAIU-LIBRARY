@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect } from '@ngrx/effects';
+import { Actions, createEffect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -35,10 +35,10 @@ export class ActionsEffects {
   /**
    * Update actions store with latest action
    */
-  @Effect() onAction: Observable<Action> = this.actions$.pipe(
+  onAction: Observable<Action> = createEffect(() => this.actions$.pipe(
     filter(action => action.type !== StreamActions.UPDATE),
     map((action: Action) => StreamActions.update(action))
-  );
+  ));
 
   constructor(private actions$: Actions) {
   }

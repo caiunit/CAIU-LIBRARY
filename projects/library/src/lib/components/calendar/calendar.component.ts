@@ -22,7 +22,7 @@ import { CalendarFormComponent } from './calendar-form/calendar-form.component';
 import { build, inArray, toArray } from '../../shared/utils';
 import { COLORS } from '../../shared/lookup';
 import { TypeConstructor } from '../../shared/models';
-import { SafeUrl } from '@angular/platform-browser/platform-browser';
+import { SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'iu-calendar',
